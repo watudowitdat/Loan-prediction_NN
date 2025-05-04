@@ -1,15 +1,18 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib
+import pickle
 import tensorflow as tf
 
 from tensorflow.keras.models import load_model
 
 # Load model and preprocessing tools
 model = load_model('model_NN.h5')
-scaler = joblib.load('scaler_NN.pkl')
-encoder = joblib.load('encoder_NN.pkl')
+with open('scaler_NN.pkl', 'rb') as f:
+    scaler = pickle.load(f)
+with open('encoder_NN.pkl', 'rb') as f:
+    encoder = pickle.load(f)
+
 
 # Define categorical and numeric columns
 cat_var = ["person_gender", "person_education", "person_home_ownership", "loan_intent", "previous_loan_defaults_on_file"]
