@@ -7,9 +7,10 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 
 # Load model and preprocessing tools
-model = load_model('model.h5')
-scaler = joblib.load('scaler.pkl')
-encoder = joblib.load('encoder.pkl')
+model = load_model('model_NN.h5')
+scaler = joblib.load('scaler_NN.pkl')
+encoder = joblib.load('encoder_NN.pkl')
+
 
 # Define categorical and numeric columns
 cat_var = ["person_gender", "person_education", "person_home_ownership", "loan_intent", "previous_loan_defaults_on_file"]
